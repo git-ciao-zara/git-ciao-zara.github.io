@@ -59,8 +59,8 @@
        .title-spot{
          color:white;
          text-align:center;
-         border-top:1px solid white;
-         border-bottom:1px solid white;
+         /* border-top:1px solid white;
+         border-bottom:1px solid white; */
          font-family: 'Raleway', sans-serif;
          font-weight:600;
          font-size:20px;
@@ -68,12 +68,76 @@
          padding-bottom:10px;
          margin-bottom:10px;
        }
+       .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+      }
+
+      .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+      }
+
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+      }
+
+      input:checked + .slider {
+        background-color: #2196F3;
+      }
+
+      input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+      }
+
+      input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+      }
+
+      /* Rounded sliders */
+      .slider {
+        border-radius: 34px;
+      }
+      .round {
+        border-radius: 34px;
+      }
+
+      .slider:before {
+        border-radius: 50%;
+      }
+      .round:before {
+        border-radius: 50%;
+      }
        @media only screen and (max-width: 600px) {
         #logo {
           left: 10px;
         }
       }
-
 
     </style>
     <title>SORCIER</title>
@@ -99,12 +163,18 @@
             9.00 - 12.30 <br>
             15.00 - 19.00 <br>
           </div>
-
         </div>
-
       </div>
+
+      <div class="" style="position:fixed;top:8px;right:5px;z-index:10">
+        <label class="switch">
+          <input onclick="setTheme()" type="checkbox" checked>
+          <span class="slider"></span>
+        </label><br><br>
+      </div>
+
       <div class="row">
-        <div class="col-12 title-spot">
+        <div class="col-12 title-spot" style="color:white;border-top-style:solid;border-top-color:white;border-top-width:1px;border-bottom-style:solid;border-bottom-color:white;border-bottom-width:1px">
           GUIDA ALL'ACQUISTO
         </div>
         <div id="description" class="col-sm-12 col-md-12 col-lg-6" style="min-height:90vh;height:auto;color:white;line-height:45px;font-family:'EB Garamond',serif;font-size:40px">
@@ -123,57 +193,86 @@
       </div>
 
       <div class="row">
-        <div class="col-sm-12 col-lg-4 spot">
+        <div class="col-sm-12 col-lg-4 spot"  style="border-top-style:solid;border-top-color:white;border-top-width:1px;">
           <img style="object-fit: cover;width:100%;height:80%" src="https://cdn.shopify.com/s/files/1/0096/1722/products/UTG08_1024x1024.jpg?v=1457040886"/>
-          <p class="label">Carte Bicicle <b> 12.50$ </b></p>
+          <p class="label" style="color:white">Carte Bicicle <b style="color:white"> 12.50$ </b></p>
         </div>
-        <div class="col-sm-12 col-lg-4 spot">
+        <div class="col-sm-12 col-lg-4 spot" style="border-top-style:solid;border-top-color:white;border-top-width:1px;">
           <img style="object-fit: cover;width:100%;height:80%" src="https://s3.amazonaws.com/images.penguinmagic.com/images/soc_products/original/57645-alt1.png"/>
-          <p class="label">Carte Bicicle <b> 12.50$ </b></p>
+          <p class="label" style="color:white">Carte Bicicle <b style="color:white"> 12.50$ </b></p>
         </div>
-        <div class="col-sm-12 col-lg-4 spot">
+        <div class="col-sm-12 col-lg-4 spot" style="border-top-style:solid;border-top-color:white;border-top-width:1px;">
           <img style="object-fit: cover;width:100%;height:80%" src="https://strixmagic.com/33562-medium_default/bicycle-spirit-ii-black-playing-cards.jpg"/>
-          <p class="label">Carte Bicicle <b> 12.50$ </b></p>
+          <p class="label" style="color:white">Carte Bicicle <b style="color:white"> 12.50$ </b></p>
         </div>
       </div>
       <div class="row">
-        <div class="col-sm-12 col-lg-4 spot ">
+        <div class="col-sm-12 col-lg-4 spot " style="border-top-style:solid;border-top-color:white;border-top-width:1px;">
           <img style="object-fit: cover;width:100%;height:80%" src="https://cdn.shopify.com/s/files/1/0096/1722/products/UTG08_1024x1024.jpg?v=1457040886"/>
-          <p class="label">Carte Bicicle <b> 12.50$ </b></p>
+          <p class="label" style="color:white">Carte Bicicle <b style="color:white"> 12.50$ </b></p>
         </div>
-        <div class="col-sm-12 col-lg-4 spot ">
+        <div class="col-sm-12 col-lg-4 spot " style="border-top-style:solid;border-top-color:white;border-top-width:1px;">
           <img style="object-fit: cover;width:100%;height:80%" src="https://s3.amazonaws.com/images.penguinmagic.com/images/soc_products/original/57645-alt1.png"/>
-          <p class="label">Carte Bicicle <b> 12.50$ </b></p>
+          <p class="label" style="color:white">Carte Bicicle <b style="color:white"> 12.50$ </b></p>
         </div>
-        <div class="col-sm-12 col-lg-4 spot ">
+        <div class="col-sm-12 col-lg-4 spot " style="border-top-style:solid;border-top-color:white;border-top-width:1px;">
           <img style="object-fit: cover;width:100%;height:80%" src="https://strixmagic.com/33562-medium_default/bicycle-spirit-ii-black-playing-cards.jpg"/>
-          <p class="label">Carte Bicicle <b> 12.50$ </b></p>
+          <p class="label" style="color:white">Carte Bicicle <b style="color:white"> 12.50$ </b></p>
         </div>
       </div>
       <div class="row">
-        <div class="col-12 title-spot">
+        <div class="col-12 title-spot" style="color:white;border-top-style:solid;border-top-color:white;border-top-width:1px;border-bottom-style:solid;border-bottom-color:white;border-bottom-width:1px">
           CONTATTI
         </div>
-        <div class="col-sm-12 col-lg-4 title-spot" style="font-size:16px">
-          Via Roma 54 Taranto
+        <div class="col-sm-12 col-lg-4 title-spot" style="font-size:16px" style="color:white">
+          <span style="color:white"> Via Roma 54 Taranto </span>
         </div>
-        <div class="col-sm-12 col-lg-4 title-spot" style="font-size:16px">
-          T. 1-555-555-5555
+        <div class="col-sm-12 col-lg-4 title-spot" style="font-size:16px" >
+         <span style="color:white"> T. 1-555-555-5555 </span>
         </div>
-        <div class="col-sm-12 col-lg-4 title-spot" style="font-size:16px">
-          E. sorcier@gmail.com
+        <div class="col-sm-12 col-lg-4 title-spot" style="font-size:16px" style="color:white">
+          <span style="color:white"> E. sorcier@gmail.com </span>
         </div>
       </div>
 
-      <div class="row" style="border:1px solid white">
-        <div class="col-12 " style="text-align:center;height:30px;color:white;font-family:'EB Garamond',serif">
-              Copyright &nbsp;&nbsp;&nbsp;&nbsp;2020&nbsp;&nbsp;&nbsp;&nbsp; SorcierMagic
+      <div class="row text-white border-white" style="border-top-style:solid;border-top-color:white;border-top-width:1px;">
+        <div class="col-12 " style="border-top-style:solid;border-top-color:white;border-top-width:1px;color:white;text-align:center;height:30px;font-family:'EB Garamond',serif">
+              Copyright &nbsp;&nbsp;&nbsp;&nbsp; 2020 &nbsp;&nbsp;&nbsp;&nbsp; SorcierMagic
         </div>
       </div>
     </div>
 
     <script type="text/javascript">
       console.log('ehi');
+
+      function setTheme(){
+        console.log('change!');
+        var body = document.getElementsByTagName("body")[0];
+        console.log(body)
+        if(body.style.backgroundColor == "white"){
+          body.style.backgroundColor = "black"
+        } else {
+          body.style.backgroundColor = "white"
+        }
+        var divs = document.getElementsByTagName("*");
+        for(let div of divs){
+          if(div.style.color == "white"){
+            div.style.color = "black"
+          } else if(div.style.color == "black"){
+            div.style.color = "white"
+          }
+          if(div.style.borderTopColor == "white"){
+            div.style.borderTopColor = "black"
+          } else if(div.style.borderTopColor == "black"){
+            div.style.borderTopColor = "white"
+          }
+          if(div.style.borderBottomColor == "white"){
+            div.style.borderBottomColor = "black"
+          } else if(div.style.borderBottomColor == "black"){
+            div.style.borderBottomColor = "white"
+          }
+        }
+      }
     </script>
   </body>
 </html>
