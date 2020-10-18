@@ -5,25 +5,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  <script defer src="face-api.min.js"></script>
-  <script defer src="script.js"></script>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      width: 100vw;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    canvas {
-      position: absolute;
-    }
-  </style>
 </head>
-<body>
-  <video id="video" width="720" height="560" autoplay muted></video>
-</body>
+ <body>
+        <form action="">
+            
+            <input type="text" placeholder="Importo" id="importo" oninput="fun(this.value)">
+            <input type="text" placeholder="Numero di notti" id="notti" oninput="fun(this.value)" >
+            <p> Importo finale <span id="risultato"> 0.00</span> </p>
+        </form>
+    <script>
+
+        function fun(value){
+            let risultato = document.getElementById("risultato")
+            let importo = document.getElementById("importo").value
+            let notti = document.getElementById("notti").value
+            if (! (isNumeric(importo) && isNumeric(notti))){
+                if(importo.length==0 || notti.length==0){
+                    document.getElementById("risultato").innerHTML = "0.00"
+                }
+                return
+            }
+            if (notti > 29){
+                document.getElementById("notti").value = 29
+                notti = 29
+            }
+            prezzo = calcola_prezzo(importo,notti)
+            risultato.innerHTML=prezzo
+        }
+
+        function isNumeric(str) {
+            if (typeof str != "string") return false 
+            return !isNaN(str) && !isNaN(parseFloat(str)) 
+            }
+
+        function calcola_prezzo(importo, notti){
+            let B;
+            let prezzo_finale=10;
+            if (notti >= 1 && notti <= 5){
+                B = 2.08
+            } 
+            else if (notti >= 6 && notti <= 10){
+                B = 1.85
+            }
+            else if (notti >= 11 && notti <= 18){
+                B = 1.5
+            } 
+            else if (notti >= 19 && notti <= 25){
+                B = 1.1
+            }
+            else if (notti >= 26 && notti <= 29){
+                B = 1
+            } else {
+                B = 1
+            }
+            prezzo_giornaliero = ((importo/29)*B).toFixed(2)
+            prezzo_finale = prezzo_giornaliero*notti
+
+            console.log(prezzo_giornaliero, B);
+
+            if (isNaN(prezzo_finale)){
+                prezzo_finale = "0"
+            }
+
+            prezzo_finale = prezzo_finale.toFixed(1)+0+' Euro'
+            return prezzo_finale
+        }
+    </script>
+    </body>
 </html>
