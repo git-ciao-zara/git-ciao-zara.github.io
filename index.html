@@ -1,24 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
- <body>
-        <form action="">
-            
-            <input type="text" placeholder="Importo" id="importo" oninput="fun(this.value)">
-            <input type="text" placeholder="Numero di notti" id="notti" oninput="fun(this.value)" >
-            <p> Importo finale <span id="risultato"> 0.00</span> </p>
+<html lang="en" style="box-sizing : border-box">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Test!</title>
+    
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css">
+    
+    <!-- import the webpage's javascript file -->
+    <script src="/script.js" defer></script>
+  </head>  
+      <body>
+        <div style=" box-shadow: 0px 1px 10px 0 rgb(200,200,200); border-radius:15px;width:300px;padding:20px">
+        <form action="" >
+          <b>
+            Calcola il costo del tuo soggiorno
+          </b>
+          <hr>
+          <br>
+            <input type="text" placeholder="Importo" id="importo" oninput="fun(this.value)" style="outline:none;border:1px solid rgb(200,200,200); padding:10px;font-size:16px; border-radius:5px; width:92%"> <br><br>
+            <input type="text" placeholder="Numero di notti" id="notti"  style="outline:none;border:1px solid rgb(200,200,200); padding:10px;font-size:16px; border-radius:5px; width:92%" oninput="fun(this.value)" > <br>
+            <p> Importo finale <span id="risultato" style="color:rgb(0,255,0)"> 0.00</span> </p>
         </form>
+        </div>
+
     <script>
 
         function fun(value){
             let risultato = document.getElementById("risultato")
             let importo = document.getElementById("importo").value
             let notti = document.getElementById("notti").value
+            
+            importo = importo.replace(",",".")
             if (! (isNumeric(importo) && isNumeric(notti))){
                 if(importo.length==0 || notti.length==0){
                     document.getElementById("risultato").innerHTML = "0.00"
